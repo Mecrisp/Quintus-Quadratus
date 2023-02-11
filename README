@@ -1,0 +1,70 @@
+
+--------------------------------------------------------------------------------
+  Quintus Quadratus
+  Lovebyte 2023
+  Mecrisp & Fuz
+
+  Matthias Koch
+  m-atthias@users.sf.net
+  http://mecrisp.sourceforge.net/
+
+  Robert Clausecker <fuz@fuz.su>
+--------------------------------------------------------------------------------
+
+The classic "Munching Square" running in 32 bytes on a RISC-V microcontroller,
+using two DAC channels for vector graphics on an analog oscilloscope.
+
+Quintus Quadratus is designed for GD32VF103 microcontrollers and
+draws vector graphics on an analog oscilloscope in XY mode
+connected to
+
+   GND and the two DAC channels on pins
+   PA4 (vertical) and
+   PA5 (horizontal).
+
+--------------------------------------------------------------------------------
+  Design ideas:
+--------------------------------------------------------------------------------
+
+This is a RISC-V port of the classic "Munching Square", as no architecture
+in demoscene can be considered complete without this timeless effect.
+
+--------------------------------------------------------------------------------
+  How to run:
+--------------------------------------------------------------------------------
+
+If you have connected your
+
+Longan Nano board to
+             a USB-serial cable with 3.3V logic levels
+
+3V3 or 5V -- VCC (measure the voltage present here)
+R0        -- TXD
+T0        -- RXD
+GND       -- GND
+
+you can flash it if you first
+
+* Press and hold BOOT0 button
+* Press and release Reset button
+* Release BOOT0 button
+
+and then execute
+
+stm32loader -e -w -v -p /dev/ttyUSB0 quintus-quadratus.bin
+
+on your host machine.
+
+Press and release Reset button to start demo.
+
+--------------------------------------------------------------------------------
+  Credits:
+--------------------------------------------------------------------------------
+
+* Inspiration:
+
+  Munching Square, classic PDP-1 demo
+
+* Saved two bytes for success:
+
+  Robert Clausecker (Fuz)

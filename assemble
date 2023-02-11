@@ -1,0 +1,12 @@
+#!/bin/sh
+
+riscv64-linux-gnu-as quintus-quadratus.s -o quintus-quadratus.o -march=rv32im
+riscv64-linux-gnu-ld -o quintus-quadratus.elf -T memmap quintus-quadratus.o -m elf32lriscv
+riscv64-linux-gnu-objdump -Mnumeric -D quintus-quadratus.elf > quintus-quadratus.list
+riscv64-linux-gnu-objcopy quintus-quadratus.elf quintus-quadratus.bin -O binary
+
+rm -f quintus-quadratus.o
+rm -f quintus-quadratus.elf
+
+md5sum *.bin
+ls -l *.bin

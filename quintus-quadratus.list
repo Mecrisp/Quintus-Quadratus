@@ -1,0 +1,21 @@
+
+quintus-quadratus.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <Reset>:
+   0:	40021737          	lui	x14,0x40021
+   4:	400071b7          	lui	x3,0x40007
+   8:	67c1                	lui	x15,0x10
+   a:	0785                	addi	x15,x15,1
+
+0000000c <mainloop>:
+   c:	5461                	li	x8,-8
+   e:	cf40                	sw	x8,28(x14)
+  10:	40f1a023          	sw	x15,1024(x3) # 40007400 <DAC_BASE+0x400>
+  14:	9426                	add	x8,x8,x9
+  16:	04c2                	slli	x9,x9,0x10
+  18:	8ca1                	xor	x9,x9,x8
+  1a:	4291a023          	sw	x9,1056(x3)
+  1e:	b7fd                	j	c <mainloop>
